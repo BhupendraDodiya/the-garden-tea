@@ -6,3 +6,7 @@ class info(models.Model):
     Email = models.EmailField() 
     Subject = models.CharField(max_length=100) 
     Message = models.TextField() 
+
+class Product(models.Model):
+    description = models.TextField()
+    upload_photo = models.ImageField(upload_to="product/")
