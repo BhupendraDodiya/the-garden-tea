@@ -1,12 +1,14 @@
 from django.db import models
 
 # Create your models here.
-class info(models.Model):
-    Name = models.CharField(max_length=100) 
-    Email = models.EmailField() 
-    Subject = models.CharField(max_length=100) 
-    Message = models.TextField() 
+
+class Contact(models.Model):
+    name = models.CharField(max_length=100) 
+    email = models.EmailField() 
+    subject = models.CharField(max_length=100) 
+    message = models.TextField() 
 
 class Product(models.Model):
+    name = models.CharField(max_length=100)
     description = models.TextField()
     upload_photo = models.ImageField(upload_to="product/")

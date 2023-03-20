@@ -12,11 +12,11 @@ def home(request):
 
 
 def about(request):
-    return render(request, "about.html")
+    return render(request,"about.html")
 
 
 def contact(request):
-    return render(request, "contact.html")
+    return render(request,"contact.html")
 
 
 def infor(request):
@@ -25,10 +25,6 @@ def infor(request):
         em = request.POST['email']
         su = request.POST['subject']
         me = request.POST['message']
-        if info.objects.filter(Email=em).exists():
-            return render(request, 'contact.html', {'m': 'email already exist'})
-
-        else:
-            info.objects.create(Name=na, Email=em, Subject=su, Message=me)
-            messages.success(request, "feedback successfully")
-            return redirect('/contact/')
+        Contact.objects.create(name=na, email=em, subject=su, message=me)
+        messages.success(request, "Your feedback has been received, you will get a response soon.")
+        return redirect('/contact/')
